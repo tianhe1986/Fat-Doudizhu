@@ -53,8 +53,8 @@ module Game{
 			this.myReadyPokers = new CardSet();
 			this.nowPokers = new CardSet();
 			for (let i = 0; i < 17; i++) {
-				this.leftPokers.push(new Poker());
-				this.rightPokers.push(new Poker());
+				this.leftPokers.push(game.poolManage.getPoker());
+				this.rightPokers.push(game.poolManage.getPoker());
 			}	
 		}
 
@@ -245,7 +245,7 @@ module Game{
 			this.nowPokers = cards;
 			if (seat == this.myInfo.seat) {
 				for (let i = 0; i < cards.cards.length; i++) {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					poker.index = cards.cards[i];
 					this.myOutPokers.push(poker);
 					poker.x = i*30;
@@ -256,7 +256,7 @@ module Game{
 				//这里不用移除手牌，在出牌成功的时候自然会移除
 			} else if (seat == this.leftInfo.seat) {
 				for (let i = 0; i < cards.cards.length; i++) {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					poker.index = cards.cards[i];
 					this.leftOutPokers.push(poker);
 					poker.x = 0;
@@ -273,7 +273,7 @@ module Game{
 				game.roomView.leftPokerNum.text = '' + this.leftPokers.length;
 			} else {
 				for (let i = 0; i < cards.cards.length; i++) {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					poker.index = cards.cards[i];
 					this.rightOutPokers.push(poker);
 					poker.x = 0;
@@ -344,7 +344,7 @@ module Game{
 		{
 			this.myPokers = [];
 			tempCards.forEach((value, index, array) => {
-				let poker = new Poker();
+				let poker = game.poolManage.getPoker();
 				poker.index = value;
 				this.myPokers.push(poker);
 			});
@@ -468,7 +468,7 @@ module Game{
 			//地主牌
 			let i = 0;
 			dizhuCards.forEach((value, index, array) => {
-				let poker = new Poker();
+				let poker = game.poolManage.getPoker();
 				poker.index = value;
 				this.dizhuPokers.push(poker);
 				poker.x = (i++)*105;
@@ -483,7 +483,7 @@ module Game{
 				game.roomView.dizhuhead.pos(478, 718);
 				//加入手牌，并重新排序
 				dizhuCards.forEach((value, index, array) => {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					poker.index = value;
 					this.myPokers.push(poker);
 					poker.skin = poker.img;
@@ -503,7 +503,7 @@ module Game{
 				//加入手牌展示即可
 				let i = 17;
 				dizhuCards.forEach((value, index, array) => {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					this.leftPokers.push(poker);
 					poker.x = 0;
 					poker.y = (i++)*15;
@@ -514,7 +514,7 @@ module Game{
 			} else {
 				let i = 17;
 				dizhuCards.forEach((value, index, array) => {
-					let poker = new Poker();
+					let poker = game.poolManage.getPoker();
 					this.rightPokers.push(poker);
 					poker.x = 0;
 					poker.y = (i++)*15;

@@ -20,6 +20,12 @@ module Game{
 			this.height = 150;
 		}
 
+		public recover()
+		{
+			this.off(Laya.Event.CLICK, this, this.switchStatus);
+			this.img = "doudizhu/bg_poker.png";
+		}
+
 		public switchStatus()
 		{
 			if (game.room.canSelect) {

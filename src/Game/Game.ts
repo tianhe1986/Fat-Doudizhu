@@ -16,6 +16,9 @@ module Game{
 		//游戏管理
 		public room: Room;
 
+		//对象管理
+		public poolManage: PoolManage;
+
 		//扑克逻辑处理
 		public pokerLogic: PokerLogic;
 
@@ -33,6 +36,7 @@ module Game{
 
 		public begin()
 		{
+			this.poolManage = new PoolManage();
 			this.msgHandler = new MessageHandler();
 
 			let config:any;
