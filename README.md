@@ -15,6 +15,6 @@
 可发布成H5和微信小游戏。
 
 # TODO
-1. 增加服务端对牌型的判断。
+1. <del>增加服务端对牌型的判断。</del>已在服务端分支实现，见[这里](https://github.com/tianhe1986/Doudizhu-sever/tree/develop_server)
 2. 游戏中掉线超时处理。
 3. 房间内一局结束后，继续进行下一局。
