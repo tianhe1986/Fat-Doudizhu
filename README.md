@@ -18,3 +18,9 @@
 1. <del>增加服务端对牌型的判断。</del>已在服务端分支实现，见[这里](https://github.com/tianhe1986/Doudizhu-sever/tree/develop_server)
 2. 游戏中掉线超时处理。
 3. 房间内一局结束后，继续进行下一局。
+
+# go服务端
+随着技术的进步，用go语言重写了个简单服务端，目前还没有处理牌型判断，正在完善。相比nodejs的服务端，见[这里](https://github.com/tianhe1986/Doudizhu-server-go)调整如下：
+1. 暂不考虑重连，游戏中掉线，直接解散房间。
+2. 一局游戏结束后，解散房间，需重新进行匹配。
+3. TODO 增加服务端对牌型的判断。
