@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":66,
+    "selecteID":65,
     "props":{"y":3,"width":1200,"sceneColor":"#b3c5d7","left":-6,"height":800},
     "nodeParent":-1,
     "label":"View",
@@ -644,7 +644,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":398,"x":518,"width":191,"visible":false,"var":"enter","skin":"comp/button.png","scaleY":1,"scaleX":1,"pivotY":-1,"pivotX":3,"labelSize":28,"label":"开始匹配","height":75},
+            "props":{"y":398,"x":518,"width":191,"visible":false,"var":"enter","skin":"comp/button.png","scaleY":1,"scaleX":1,"pivotY":-1,"pivotX":3,"labelSize":28,"label":"重新匹配","height":75},
             "nodeParent":1,
             "label":"Button(enter)",
             "isDirectory":false,
