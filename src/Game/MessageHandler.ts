@@ -18,6 +18,9 @@ module Game{
 					case Constants.MsgCode.PLAYER_WANTDIZHU: //抢地主消息
 						game.room.onWantDiZhu(data.content);
 						break;
+					case Constants.MsgCode.ROOM_EXIT: // 房间解散了
+						game.room.onRoomExit();
+						break;
 					default:
 						break;
 				}

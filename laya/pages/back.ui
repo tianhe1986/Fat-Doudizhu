@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":61,
+    "selecteID":66,
     "props":{"y":3,"width":1200,"sceneColor":"#b3c5d7","left":-6,"height":800},
     "nodeParent":-1,
     "label":"View",
@@ -45,14 +45,13 @@
             "props":{"y":100,"width":105,"visible":true,"var":"rightCard","left":1014,"height":271},
             "nodeParent":1,
             "label":"Box(rightCard)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"width":105,"visible":false,"skin":"doudizhu/bg_poker.png","height":150},
                     "nodeParent":3,
@@ -73,14 +72,13 @@
             "props":{"y":551,"width":688,"visible":true,"var":"myCard","left":315,"height":150},
             "nodeParent":1,
             "label":"Box(myCard)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"width":105,"visible":false,"skin":"doudizhu/bg_poker.png","height":150},
                     "nodeParent":4,
@@ -100,14 +98,13 @@
             "props":{"y":125,"x":251,"width":105,"visible":true,"var":"leftOutCard","height":387},
             "nodeParent":1,
             "label":"Box(leftOutCard)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":11,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"width":105,"visible":false,"skin":"doudizhu/bg_poker.png","height":150},
                     "nodeParent":11,
@@ -127,14 +124,13 @@
             "props":{"y":127,"x":847,"width":105,"visible":true,"var":"rightOutCard","height":391},
             "nodeParent":1,
             "label":"Box(rightOutCard)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":13,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"width":105,"visible":false,"skin":"doudizhu/bg_poker.png","height":150},
                     "nodeParent":13,
@@ -154,14 +150,13 @@
             "props":{"y":346,"width":465,"visible":true,"var":"myOutCard","left":383,"height":150},
             "nodeParent":1,
             "label":"Box(myOutCard)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":15,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"width":105,"visible":false,"skin":"doudizhu/bg_poker.png","height":150},
                     "nodeParent":15,
@@ -221,13 +216,14 @@
             "props":{"y":20,"x":117,"width":18,"visible":false,"var":"leftAction","height":30},
             "nodeParent":1,
             "label":"Box(leftAction)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
+                    "x":30,
                     "type":"Line",
                     "props":{"y":2.5,"x":9.5,"toY":25,"toX":0,"lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":25,
@@ -241,6 +237,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Lines",
                     "props":{"y":-21.5,"x":-32.5,"points":"36,41,42,51,47,41","lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":25,
@@ -261,14 +258,13 @@
             "props":{"y":21,"x":1055,"width":18,"visible":false,"var":"rightAction","height":30},
             "nodeParent":1,
             "label":"Box(rightAction)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":26,
             "child":[
                 {
-                    "x":30,
                     "type":"Line",
                     "props":{"y":2.5,"x":9.5,"toY":25,"toX":0,"lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":26,
@@ -282,7 +278,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Lines",
                     "props":{"y":-21.5,"x":-32.5,"points":"36,41,42,51,47,41","lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":26,
@@ -303,14 +298,13 @@
             "props":{"y":429,"x":578,"width":18,"visible":false,"var":"myAction","height":30},
             "nodeParent":1,
             "label":"Box(myAction)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":29,
             "child":[
                 {
-                    "x":30,
                     "type":"Line",
                     "props":{"y":2.5,"x":9.5,"toY":25,"toX":0,"lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":29,
@@ -324,7 +318,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Lines",
                     "props":{"y":-21.5,"x":-32.5,"points":"36,41,42,51,47,41","lineWidth":1,"lineColor":"#ff0000"},
                     "nodeParent":29,
@@ -400,14 +393,13 @@
             "props":{"y":19,"x":445,"width":315,"visible":true,"var":"dizhuCards","height":150},
             "nodeParent":1,
             "label":"Box(dizhuCards)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":37,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"visible":false,"skin":"doudizhu/bg_poker.png"},
                     "nodeParent":37,
@@ -426,14 +418,13 @@
             "props":{"y":487,"x":380,"width":427,"visible":false,"var":"qiangdizhu","height":37},
             "nodeParent":1,
             "label":"Box(qiangdizhu)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":39,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":0,"width":81,"var":"score1","skin":"comp/button.png","labelSize":20,"label":"一分","height":37},
                     "nodeParent":39,
@@ -446,7 +437,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":105,"width":81,"var":"score2","skin":"comp/button.png","labelSize":20,"label":"两分","height":37},
                     "nodeParent":39,
@@ -459,7 +449,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":210,"width":81,"var":"score3","skin":"comp/button.png","labelSize":20,"label":"三分","height":37},
                     "nodeParent":39,
@@ -472,7 +461,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":315,"width":81,"var":"giveup","skin":"comp/button.png","labelSize":20,"label":"不要","height":37},
                     "nodeParent":39,
@@ -533,14 +521,13 @@
             "props":{"y":79,"x":379,"visible":false,"var":"scorePanel","renderType":"render"},
             "nodeParent":1,
             "label":"Box(scorePanel)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":54,
             "child":[
                 {
-                    "x":30,
                     "type":"Rect",
                     "props":{"width":427,"lineWidth":1,"height":283,"fillColor":"#d1e3d5"},
                     "nodeParent":54,
@@ -553,7 +540,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "props":{"y":58,"x":29,"width":379,"var":"scoreList","renderType":"render","height":190},
                     "nodeParent":54,
@@ -565,7 +551,6 @@
                     "compId":59,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":-1,"x":9,"width":377,"renderType":"render","height":36},
                             "nodeParent":59,
@@ -577,7 +562,6 @@
                             "compId":58,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Text",
                                     "props":{"y":2,"x":9,"width":372,"text":"text","name":"scoreText","height":28,"fontSize":20,"color":"#000000"},
                                     "nodeParent":58,
@@ -592,7 +576,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "props":{"y":14,"x":157,"width":95,"text":"计分板","height":43,"fontSize":30,"color":"#342828","bold":true},
                     "nodeParent":54,
@@ -657,6 +640,20 @@
             "compId":64,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":398,"x":518,"width":191,"visible":false,"var":"enter","skin":"comp/button.png","scaleY":1,"scaleX":1,"pivotY":-1,"pivotX":3,"labelSize":28,"label":"开始匹配","height":75},
+            "nodeParent":1,
+            "label":"Button(enter)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":65,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {

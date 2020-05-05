@@ -11,6 +11,7 @@ module GameView{
 			this.giveup.on(Laya.Event.CLICK, game.room, game.room.passDiZhu);
 			this.outYes.on(Laya.Event.CLICK, game.room, game.room.giveOutAction);
 			this.outNo.on(Laya.Event.CLICK, game.room, game.room.passAction);
+			this.enter.on(Laya.Event.CLICK, game, game.reMatch);
 
 			this.scoreList.renderHandler = new Laya.Handler(this,this.scoreRender);
 		}

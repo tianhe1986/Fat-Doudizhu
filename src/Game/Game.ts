@@ -8,19 +8,19 @@ module Game{
 		public env:string;
 
 		//进入视图
-		public enterView: GameView.EnterView;
+		public enterView: GameView.EnterView = null;
 
 		//房间视图
-		public roomView: GameView.RoomView;
+		public roomView: GameView.RoomView = null;
 
 		//游戏管理
-		public room: Room;
+		public room: Room = null;
 
 		//对象管理
 		public poolManage: PoolManage;
 
 		//扑克逻辑处理
-		public pokerLogic: PokerLogic;
+		public pokerLogic: PokerLogic = null;
 
 		//socket管理
 		public socketManager: Net.SocketManage;
@@ -49,6 +49,35 @@ module Game{
 			}
 			this.socketManager = new Net.SocketManage(config.url);
 
+			this.refreshToMatch();
+		}
+
+		// 重新回到匹配页
+		public refreshToMatch()
+		{
+			// 简单粗暴的把原来的全清了，重新来过
+			if (this.enterView) {
+				this.enterView.removeSelf();
+				this.enterView.destroy();
+				this.enterView = null;
+			}
+
+			if (this.roomView) {
+				this.roomView.removeSelf();
+				this.roomView.destroy();
+				this.roomView = null;
+			}
+
+			if (this.room) {
+				delete this.room;
+				this.room = null;
+			}
+
+			if (this.pokerLogic) {
+				delete this.pokerLogic;
+				this.pokerLogic = null;
+			}
+
 			this.room = new Room();
 			this.pokerLogic = new PokerLogic();
 
@@ -66,6 +95,13 @@ module Game{
 			this.socketManager.sendData(message, this.msgHandler.matchCallback, this.msgHandler);
 			this.enterView.isMatching.visible = true;
 			this.enterView.enter.visible = false;
+		}
+
+		// 重新匹配
+		public reMatch()
+		{
+			this.refreshToMatch();
+			this.beginMatch();
 		}
 	}
 }

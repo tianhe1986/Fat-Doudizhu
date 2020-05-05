@@ -98,6 +98,16 @@ module Game{
 			game.roomView.scorePanel.visible = true;
 		}
 
+		public onRoomExit()
+		{
+			// 正常结束，房间内直接展示匹配按钮
+			if (game.roomView.scorePanel.visible) {
+				game.roomView.enter.visible = true;
+			} else { // 由于有人退出而结束，直接回到匹配页
+				game.refreshToMatch();
+			}
+		}
+
 		//出牌信息处理
 		public nextOutProcess(content:any): void
 		{

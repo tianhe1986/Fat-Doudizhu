@@ -11,5 +11,6 @@ module Constants{
 		public static ROOM_NOTIFY = 6;
 		public static PLAYER_PLAYCARD = 7;
 		public static PLAYER_WANTDIZHU = 8;
+		public static ROOM_EXIT = 9;
 	}
 }
