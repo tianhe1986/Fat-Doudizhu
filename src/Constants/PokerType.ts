@@ -20,5 +20,8 @@ module Constants{
 		public static AIRCRAFT_WING = 11; //飞机带对子
 		public static BOMB_CARD = 12; //炸弹
 		public static KINGBOMB_CARD = 13;//王炸
+		public static BOMB_FOUR_CARD = 14; // 4带2对
+		public static BOMB_TWO_STRAIGHT_CARD = 15; // 连续4带2
+		public static BOMB_FOUR_STRAIGHT_CARD = 16; // 连续4带2对
 	}
 }
