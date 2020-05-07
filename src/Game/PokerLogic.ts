@@ -60,25 +60,25 @@ module Game{
 				} else if (this.calcMaxSameNum(points) == 3) {//最多有三张相等的，说明是三带一
 					return Constants.PokerType.THREE_ONE_CARD;
 				}
-			} else if (len >= 5 && this.isStraight(points) && points[len - 1] != 15) { //这里直接判断所有顺子，免得后面大于5的时候都去判断是否是顺子
+			} else if (len >= 5 && this.isStraight(points) && points[len - 1] < 15) { //这里直接判断所有顺子，免得后面大于5的时候都去判断是否是顺子
 				return Constants.PokerType.STRAIGHT;
 			} else if (len == 5 && this.calcMaxSameNum(points) == 3 && this.calcDiffNum(points) == 2) {//最大相同数为3，有两种点数，说明是三带二
 				return Constants.PokerType.THREE_TWO_CARD;            
 			} else if ( len >= 6) {//大于6的情况比较多，比如连对（n对），飞机（n飞，带或不带，3张飞还是4张飞
 				let maxSameNum = this.calcMaxSameNum(points);
 				let diffNum = this.calcDiffNum(points);
-				if (len%3 == 0 && maxSameNum == 3 && diffNum == len/3 && (points[len - 1] - points[0] == len/3 - 1) && points[len - 1] != 15) { //三张牌飞机不带
+				if (len%3 == 0 && maxSameNum == 3 && diffNum == len/3 && (points[len - 1] - points[0] == len/3 - 1) && points[len - 1] < 15) { //三张牌飞机不带
 					return Constants.PokerType.AIRCRAFT;
-				} else if (len%2 == 0 && maxSameNum == 2 && diffNum == len/2 && (points[len - 1] - points[0] == len/2 - 1) && points[len - 1] != 15) { //连对
+				} else if (len%2 == 0 && maxSameNum == 2 && diffNum == len/2 && (points[len - 1] - points[0] == len/2 - 1) && points[len - 1] < 15) { //连对
 					return Constants.PokerType.CONNECT_CARD;
 				} else if (len%4 == 0) {
 					let threeCards = this.calcSameNumCards(points, 3);
-					if (threeCards.length == len/4 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] != 15) { //飞机三带一
+					if (threeCards.length == len/4 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15) { //飞机三带一
 						return Constants.PokerType.AIRCRAFT_CARD;
 					}
 				} else if (len%5 == 0) {
 					let threeCards = this.calcSameNumCards(points, 3);
-					if (threeCards.length == len/5 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] != 15 && diffNum == len/5*2) { //飞机三带二
+					if (threeCards.length == len/5 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15 && diffNum == len/5*2) { //飞机三带二
 						return Constants.PokerType.AIRCRAFT_WING;
 					}
 				} else if (len == 6 && this.calcMaxSameNum(points) == 4 ) { //四带二
