@@ -125,6 +125,10 @@ module Game{
 				case Constants.PokerType.AIRCRAFT_CARD: //飞机带单牌
 				case Constants.PokerType.AIRCRAFT_WING: //飞机带对子
 					return this.calcFirstPoint(points, 3);
+				case Constants.PokerType.BOMB_FOUR_CARD: //4带2对
+				case Constants.PokerType.BOMB_TWO_STRAIGHT_CARD: // 连续4带2
+				case Constants.PokerType.BOMB_FOUR_STRAIGHT_CARD: // 连续4带2对
+					return this.calcFirstPoint(points, 4);
 				default:
 					return 0;
 			}
