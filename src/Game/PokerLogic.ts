@@ -41,6 +41,12 @@ module Game{
 			//转换为点数
 			let points = this.cardsToPoints(cards);
 
+			return this.calcuPointsType(points);
+		}
+
+
+		public calcuPointsType(points):number
+		{
 			let len = points.length;
 
 			if (len == 1) { //单牌
@@ -72,36 +78,47 @@ module Game{
 				} else if (len%2 == 0 && maxSameNum == 2 && diffNum == len/2 && (points[len - 1] - points[0] == len/2 - 1) && points[len - 1] < 15) { //连对
 					return Constants.PokerType.CONNECT_CARD;
 				} else if (len%4 == 0) {
-					let threeCards = this.calcSameNumCards(points, 3);
-					if (threeCards.length == len/4 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15) { //飞机三带一
+					let threeCards = this.calcSameNumMaxStraightCards(points, 3);
+					if (threeCards.length >= len/4 && threeCards[len/4 - 1] < 15) { //飞机三带一
 						return Constants.PokerType.AIRCRAFT_CARD;
 					}
 				}
 				if (len%5 == 0) {
 					let threeCards = this.calcSameNumCards(points, 3);
-					if (threeCards.length == len/5 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15 && diffNum == len/5*2) { //飞机三带二
+					// 除了3张的之外，其他的都必须是成对，因此检查是否没有单张的出现即可
+					let oneCards = this.calcSameNumCards(points, 1);
+					
+					if (threeCards.length == len/5 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15 && oneCards.length == 0) { //飞机三带二
 						return Constants.PokerType.AIRCRAFT_WING;
 					}
-				} 
+				}
 
 				if (len == 6 && maxSameNum == 4 ) { //四带二
 					return Constants.PokerType.BOMB_TWO_CARD;
 				} else if (len == 8 && maxSameNum == 4) { // 四带两对
 					let twoCards = this.calcSameNumCards(points, 2);
+
+					// TODO： 33334444 这样的到底算连续三带一还是四带两对？
 					if (twoCards.length == 2) {
 						return Constants.PokerType.BOMB_FOUR_CARD;
 					}
 				}
+
 				if (len % 6 == 0) {
-					let fourCards = this.calcSameNumCards(points, 4);
-					if (fourCards.length == len/6 && this.isStraight(fourCards) && fourCards[fourCards.length - 1] < 15) { // 连续四带二
+					let fourCards = this.calcSameNumMaxStraightCards(points, 4);
+					if (fourCards.length >= len/6 && fourCards[len/6 - 1] < 15) { // 连续四带二
 						return Constants.PokerType.BOMB_TWO_STRAIGHT_CARD;
 					}
 				}
+
 				if (len % 8 == 0) {
-					let fourCards = this.calcSameNumCards(points, 4);
-					let twoCards = this.calcSameNumCards(points, 2);
-					if (twoCards.length == 2 * fourCards.length && fourCards.length == len/8 && this.isStraight(fourCards) && fourCards[fourCards.length - 1] < 15) { // 连续四带两对
+					let fourCards = this.calcSameNumMaxStraightCards(points, 4);
+
+					// 其他的都必须是成对，因此检查是否没有单张和三张的出现即可
+					let oneCards = this.calcSameNumCards(points, 1);
+					let threeCards = this.calcSameNumCards(points, 3);
+
+					if (fourCards.length >= len/8 && oneCards.length == 0 && threeCards.length == 0 && fourCards[len/8 - 1] < 15) { // 连续四带两对
 						return Constants.PokerType.BOMB_FOUR_STRAIGHT_CARD;
 					}
 				}
