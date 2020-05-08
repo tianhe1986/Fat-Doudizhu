@@ -204,6 +204,73 @@ module Game{
 			return cards;
 		}
 
+		// 取出所有满足条件的点数：该点数的数量大于等于N
+		// TODO: 与上面的calcSameNumCards合并
+		public calcGeNumCards(points: Array<number>, num:number): Array<number>
+		{
+			let cards = new Array<number>();
+
+			let nowNum = 1;
+			for (let i = 0; i < points.length - 1; i++) {
+				if (points[i] == points[i+1]) { //与下一张相同，数量加1
+					nowNum++;
+				} else { //重新开始计算
+					if (nowNum >= num) {
+						cards.push(points[i]);
+					}
+					nowNum = 1;
+				}
+			}
+
+			if (nowNum >= num) {
+				cards.push(points[points.length - 1]);
+			}
+
+			return cards;
+		}
+
+		// 取出所有满足条件的点数：
+		// 从所有点数的数量等于N的列表中，取出最长连续递增子区间
+		public calcSameNumMaxStraightCards(points: Array<number>, num:number): Array<number>
+		{
+			let geNumCards = this.calcGeNumCards(points, num);
+			if (geNumCards.length == 0) {
+				return [];
+			}
+
+			// 遍历找最长连续递增子区间
+			let maxStartPoint:number = geNumCards[0];
+			let maxNum: number = 1;
+
+			let nowStartPoint:number = geNumCards[0];
+			let nowNum: number = 1;
+
+			for (let i = 1, len = geNumCards.length; i < len; i++) {
+				if (geNumCards[i] == geNumCards[i-1] + 1) { // 比上一张多1
+					nowNum++;
+				} else { // 重新开始计算
+					if (nowNum > maxNum) {
+						maxNum = nowNum;
+						maxStartPoint = nowStartPoint;
+					}
+					nowNum = 1;
+					nowStartPoint = geNumCards[i];
+				}
+			}
+
+			if (nowNum > maxNum) {
+				maxNum = nowNum;
+				maxStartPoint = nowStartPoint;
+			}
+
+			let cards = new Array<number>();
+			for (let i = 0; i < maxNum; i++) {
+				cards.push(maxStartPoint + i);
+			}
+
+			return cards;
+		}
+
 		//有多少不同的点数
 		public calcDiffNum(points: Array<number>): number
 		{
