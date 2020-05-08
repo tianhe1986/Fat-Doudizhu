@@ -76,24 +76,29 @@ module Game{
 					if (threeCards.length == len/4 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15) { //飞机三带一
 						return Constants.PokerType.AIRCRAFT_CARD;
 					}
-				} else if (len%5 == 0) {
+				}
+				if (len%5 == 0) {
 					let threeCards = this.calcSameNumCards(points, 3);
 					if (threeCards.length == len/5 && this.isStraight(threeCards) && threeCards[threeCards.length - 1] < 15 && diffNum == len/5*2) { //飞机三带二
 						return Constants.PokerType.AIRCRAFT_WING;
 					}
-				} else if (len == 6 && maxSameNum == 4 ) { //四带二
+				} 
+
+				if (len == 6 && maxSameNum == 4 ) { //四带二
 					return Constants.PokerType.BOMB_TWO_CARD;
 				} else if (len == 8 && maxSameNum == 4) { // 四带两对
 					let twoCards = this.calcSameNumCards(points, 2);
 					if (twoCards.length == 2) {
 						return Constants.PokerType.BOMB_FOUR_CARD;
 					}
-				} else if (len % 6 == 0) {
+				}
+				if (len % 6 == 0) {
 					let fourCards = this.calcSameNumCards(points, 4);
 					if (fourCards.length == len/6 && this.isStraight(fourCards) && fourCards[fourCards.length - 1] < 15) { // 连续四带二
 						return Constants.PokerType.BOMB_TWO_STRAIGHT_CARD;
 					}
-				} else if (len % 8 == 0) {
+				}
+				if (len % 8 == 0) {
 					let fourCards = this.calcSameNumCards(points, 4);
 					let twoCards = this.calcSameNumCards(points, 2);
 					if (twoCards.length == 2 * fourCards.length && fourCards.length == len/8 && this.isStraight(fourCards) && fourCards[fourCards.length - 1] < 15) { // 连续四带两对
