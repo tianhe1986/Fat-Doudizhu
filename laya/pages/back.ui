@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":65,
+    "selecteID":13,
     "props":{"y":3,"width":1200,"sceneColor":"#b3c5d7","left":-6,"height":800},
     "nodeParent":-1,
     "label":"View",
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":125,"x":251,"width":105,"visible":true,"var":"leftOutCard","height":387},
+            "props":{"y":75,"x":251,"width":105,"visible":true,"var":"leftOutCard","height":387},
             "nodeParent":1,
             "label":"Box(leftOutCard)",
             "isOpen":false,
@@ -121,7 +121,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":127,"x":847,"width":105,"visible":true,"var":"rightOutCard","height":391},
+            "props":{"y":75,"x":847,"width":105,"visible":true,"var":"rightOutCard","height":391},
             "nodeParent":1,
             "label":"Box(rightOutCard)",
             "isOpen":false,
