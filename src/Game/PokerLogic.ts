@@ -96,10 +96,11 @@ module Game{
 				if (len == 6 && maxSameNum == 4 ) { //四带二
 					return Constants.PokerType.BOMB_TWO_CARD;
 				} else if (len == 8 && maxSameNum == 4) { // 四带两对
-					let twoCards = this.calcSameNumCards(points, 2);
+					let oneCards = this.calcSameNumCards(points, 1);
+					let threeCards = this.calcSameNumCards(points, 3);
 
 					// TODO： 33334444 这样的到底算连续三带一还是四带两对？
-					if (twoCards.length == 2) {
+					if (oneCards.length == 0 && threeCards.length == 0) {
 						return Constants.PokerType.BOMB_FOUR_CARD;
 					}
 				}
@@ -130,7 +131,12 @@ module Game{
 		public calcPokerHeader(cards: Array<number>, type: number): number
 		{
 			let points = this.cardsToPoints(cards);
+			return this.calcPointsHeader(points, type);
+		}
 
+		public calcPointsHeader(points: Array<number>, type: number): number
+		{
+			let threeCards, fourCards;
 			switch (type) {
 				case Constants.PokerType.SINGLE_CARD: //单牌
 				case Constants.PokerType.DOUBLE_CARD: //对子
@@ -145,12 +151,17 @@ module Game{
 				case Constants.PokerType.BOMB_TWO_CARD: //4带2
 					return points[2];
 				case Constants.PokerType.AIRCRAFT_CARD: //飞机带单牌
+					threeCards = this.calcSameNumMaxStraightCards(points, 3);
+					return threeCards[0];
 				case Constants.PokerType.AIRCRAFT_WING: //飞机带对子
 					return this.calcFirstPoint(points, 3);
 				case Constants.PokerType.BOMB_FOUR_CARD: //4带2对
+					fourCards = this.calcSameNumCards(points, 4);
+					return fourCards[fourCards.length - 1];
 				case Constants.PokerType.BOMB_TWO_STRAIGHT_CARD: // 连续4带2
 				case Constants.PokerType.BOMB_FOUR_STRAIGHT_CARD: // 连续4带2对
-					return this.calcFirstPoint(points, 4);
+					fourCards = this.calcSameNumMaxStraightCards(points, 4);
+					return fourCards[0];
 				default:
 					return 0;
 			}
